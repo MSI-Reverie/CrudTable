@@ -1,0 +1,66 @@
+﻿@model CrudTable.Models.vistaModel.Persona
+
+
+@{
+    ViewBag.Title = "Nuevo";
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("Nuevo", "Persona", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Nuevo", "Persona", new { id = 0 }) }))//data-reset
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true)
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Id, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nombre)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Correo, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Correo)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Fecha_Nacimiento, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fecha_Nacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Fecha_Nacimiento)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Enviar" class="btn btn-default" />
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+}
+

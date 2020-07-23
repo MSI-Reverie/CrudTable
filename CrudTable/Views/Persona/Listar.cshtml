@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CrudTable.Models.vistaModel.listPersona>
+
+
+@{
+    ViewBag.Title = "Lista de personas";
+
+    Layout = null;
+}
+
+
+<table class="table table-striped table-condensed" id="personaTabla">
+
+    <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var oElemento in Model)
+        {
+            <tr>
+                <td>@oElemento.Id</td>
+                <td>@oElemento.Nombre</td>
+                <td>@oElemento.Correo</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" onclick="Editar('@Url.Action("Editar", "Persona",new { id = oElemento.Id })')">Editar</a>
+                    <a class="btn btn-primary btn-danger" onclick="Eliminar('@Url.Action("Eliminar", "Persona",new { id = oElemento.Id })')">Eliminar</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
