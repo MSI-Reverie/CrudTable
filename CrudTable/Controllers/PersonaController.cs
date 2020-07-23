@@ -16,11 +16,14 @@ namespace CrudTable.Controllers
             return View();
         }
 
+        
+        //Listar elementos
         public ActionResult Listar()
         {
             return View(obtenerLista());
         }
 
+        //Metodo para obtener elementos del modelo y hacer uso de los mismos en diferentes apartados
         IEnumerable<listPersona> obtenerLista()
         {
             List<listPersona> lst;
